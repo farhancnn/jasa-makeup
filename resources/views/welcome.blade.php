@@ -49,13 +49,10 @@
             <h2 class="judul-tentang">Katalog</h2>
         </div>
 
-       {{-- Pastikan ini berada di dalam <div class="container"> --}}
 <div class="row g-4 justify-content-center">
     @forelse($katalogs as $katalog)
-    {{-- Ubah pembagian kolom dan pusatkan isi kolomnya --}}
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
         
-        {{-- KUNCI UTAMA: Tambahkan max-width: 280px agar card tidak pernah melebar dari batas ini --}}
         <div class="card h-100 border-0 shadow-sm" style="width: 100%; max-width: 280px; border-radius: 15px; overflow: hidden;">
             
             <img src="{{ asset('storage/katalog/' . $katalog->gambar) }}" 
@@ -94,7 +91,6 @@
     <h2 class="text-center mb-5 fw-bold" style="color: #AE3168;">Apa Kata Klien Kami?</h2>
     
     <div class="row g-4">
-        {{-- Looping data ulasan --}}
         @forelse($ulasans as $ulasan)
         <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm p-4" style="border-radius: 15px;">

@@ -54,28 +54,21 @@ class PemesananController extends Controller
 
     public function indexAdmin()
     {
-        // Mengambil semua data pemesanan beserta relasi yang dibutuhkan
-        // (customer, katalogMakeup, dan pembayaran) agar tabel tidak error
         $pemesanans = Pemesanan::with(['customer', 'katalogMakeup', 'pembayaran'])
                         ->orderBy('created_at', 'desc')
                         ->get();
         
-        // Pastikan nama view disesuaikan dengan lokasi file admin/booking.blade.php kamu
         return view('admin.booking', compact('pemesanans'));
     }
 
-    // Memproses perubahan status dari tombol "Update" di tabel Admin
     public function updateStatus(Request $request, $id_pesanan)
     {
         $pesanan = Pemesanan::findOrFail($id_pesanan);
 
-        // Update status pesanan sesuai dengan pilihan dropdown admin
         $pesanan->update([
             'status_pesanan' => $request->status
         ]);
 
-        // Opsional: Jika status pesanan dikonfirmasi/selesai, 
-        // kita bisa otomatis mengubah status di tabel pembayaran juga
         if ($pesanan->pembayaran && in_array($request->status, ['dikonfirmasi', 'selesai'])) {
             $pesanan->pembayaran->update([
                 'status' => 'dikonfirmasi'
@@ -84,16 +77,10 @@ class PemesananController extends Controller
 
         return redirect()->back()->with('success', 'Status pesanan berhasil diperbarui menjadi: ' . ucfirst($request->status));
     }
-
-    // =================================================================
-    // BAGIAN RIWAYAT PESANAN CUSTOMER
-    // =================================================================
-    public function riwayat()
+        public function riwayat()
     {
-        // Mengambil email user yang sedang login
         $emailUser = \Illuminate\Support\Facades\Auth::user()->email;
 
-        // Mencari pesanan yang email customernya sama dengan email user yang login
         $pemesanans = \App\Models\Pemesanan::whereHas('customer', function($query) use ($emailUser) {
             $query->where('email', $emailUser);
         })
@@ -128,7 +115,6 @@ class PemesananController extends Controller
 
     public function daftarUlasan()
 {
-    // Mengambil semua ulasan beserta data customernya, diurutkan dari yang terbaru
     $ulasans = Ulasan::with('customer')->latest()->get();
     
     return view('ulasan.index', compact('ulasans'));

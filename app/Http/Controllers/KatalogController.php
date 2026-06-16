@@ -48,18 +48,16 @@ class KatalogController extends Controller
             'nama_katalog' => 'required|string',
             'deskripsi'    => 'required|string',
             'harga'        => 'required|numeric',
-            'gambar'       => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Gambar boleh kosong jika tidak diubah
+            'gambar'       => 'nullable|image|mimes:jpeg,png,jpg|max:2048', 
         ]);
 
         // Jika admin mengupload gambar baru
         if ($request->hasFile('gambar')) {
-            // Hapus gambar lama
             $oldImagePath = public_path('storage/katalog/'.$katalog->gambar);
             if (File::exists($oldImagePath)) {
                 File::delete($oldImagePath);
             }
 
-            // Upload gambar baru
             $imageName = time().'.'.$request->gambar->extension();  
             $request->gambar->move(public_path('storage/katalog'), $imageName);
             $katalog->gambar = $imageName;
@@ -78,7 +76,6 @@ class KatalogController extends Controller
     {
         $katalog = KatalogMakeup::findOrFail($id);
         
-        // Hapus file gambar dari folder
         $imagePath = public_path('storage/katalog/'.$katalog->gambar);
         if (File::exists($imagePath)) {
             File::delete($imagePath);
@@ -92,10 +89,8 @@ class KatalogController extends Controller
     // Menampilkan halaman katalog untuk Customer (Publik)
     public function katalogUser()
     {
-        // Mengambil seluruh data katalog dari database (terbaru di atas)
         $katalogs = KatalogMakeup::orderBy('created_at', 'desc')->get(); 
         
-        // Mengirim data ke file katalog.blade.php
         return view('katalog', compact('katalogs'));
     }
 }

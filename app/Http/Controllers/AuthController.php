@@ -4,33 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;                  // <-- TAMBAHKAN BARIS INI
+use App\Models\User;                 
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // 1. Validasi inputan form
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // 2. Cek kecocokan data dengan database
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // 3. Cek rolenya, arahkan ke halaman yang sesuai
             if (Auth::user()->role === 'admin') {
                 return redirect()->intended('/admin');
             }
 
-            // Jika customer, kembalikan ke halaman utama
             return redirect()->intended('/'); 
         }
 
-        // 4. Jika password salah, kembalikan ke form dengan pesan error
         return back()->withErrors([
             'email' => 'Email atau kata sandi yang Anda masukkan salah.',
         ])->onlyInput('email');
@@ -38,7 +33,7 @@ class AuthController extends Controller
 
     public function showRegister()
 {
-    return view('auth.register'); // Pastikan file ini dibuat
+    return view('auth.register'); 
 }
 
 public function register(Request $request)
@@ -64,11 +59,11 @@ public function register(Request $request)
     // === TAMBAHKAN FUNGSI INI ===
     public function logout(Request $request)
     {
-        Auth::logout(); // Mengeluarkan user dari sesi saat ini
+        Auth::logout(); 
 
-        $request->session()->invalidate(); // Menghapus memori sesi
-        $request->session()->regenerateToken(); // Membuat ulang token keamanan (mencegah pembajakan sesi)
+        $request->session()->invalidate(); 
+        $request->session()->regenerateToken(); 
 
-        return redirect('/'); // Arahkan kembali ke beranda setelah berhasil logout
+        return redirect('/'); 
     }
 }
