@@ -1,0 +1,169 @@
+/* Style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+/* BAGIAN KIRI */
+.left-side {
+    background: #AE3168;
+    min-height: 100vh;
+    position: relative;
+}
+
+.left-side h2 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.left-side p {
+    opacity: 0.80;
+}
+
+/* Lingkaran */
+.left-side::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.20);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+}
+
+/* Arrow */
+.logo-top {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #FAE4ED;
+    font-size: 30px;
+}
+
+/* BAGIAN KANAN */
+.form-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.form-box h3{
+    color: #AE3168;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-box h6{
+    color: #000;
+    text-align: left;
+}
+
+.signin-form {
+  margin-top: 40px;
+}
+
+/* Inputan */
+.form-group {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.form-control {
+    border-radius: 12px;
+    height: 55px;
+    border: 1px solid #F974AE;
+    background: #FAE4ED;
+}
+
+.form-control:hover {
+    border-color: #F974AE;
+    background: #FAE4ED;
+}
+
+.form-control:focus {
+    border-color: #F974AE;
+    box-shadow: 0 0 0 0.2rem #FAE4ED;
+}
+
+.form-control::placeholder {
+    color: #AE3168;
+    font-size: 14px;
+}
+
+/* Button */
+.submit {
+    background: linear-gradient(135deg, #FAE4ED, #FAE4ED);
+    color: #AE3168;
+    border-radius: 12px;
+    box-shadow: none !important;
+    padding: 12px;
+}
+
+.submit:hover {
+    opacity: 0.9;
+    color: #AE3168;
+}
+
+.submit:focus,
+.submit:active {
+    box-shadow: none !important;
+    outline: none !important;
+    color: #AE3168 !important;
+}
+
+/* Link Login & Regis */
+.link{
+    color:#AE3168;
+}
+
+.link a{
+    color:#F974AE;
+    text-decoration:none;
+}
+
+/* Tampilan Mobile */
+@media (max-width: 768px) {
+
+    .row {
+        flex-direction: column;
+    }
+
+    .left-side {
+        min-height: 250px;
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .left-side h2 {
+        font-size: 32px;
+    }
+
+    .left-side::before {
+        width: 120px;
+        height: 120px;
+        top: -30px;
+        right: -30px;
+    }
+
+    .logo-top {
+        font-size: 22px;
+    }
+
+    .form-box {
+        max-width: 100%;
+        padding: 25px;
+    }
+
+    .form-box h3 {
+        font-size: 20px;
+    }
+
+    .form-box h6 {
+        font-size: 14px;
+    }
+}

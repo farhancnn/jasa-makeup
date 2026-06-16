@@ -1,0 +1,343 @@
+/* Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.logo {
+    font-size: 40px;
+    font-weight: 700;
+    color: #AE3168;
+}
+
+.logoo .nav-link {
+    font-size: 20px;
+    color: #F974AE;
+}
+
+.btn-home {
+    background: linear-gradient(90deg, #F974AE, #AE3168);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #AE3168;
+    position: absolute;
+    right: 20px;
+}
+
+/* Hero Section */
+.hero-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.hero-title {
+    font-size: 60px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+/* Tentang Kami */
+.tentang-kami {
+    background: linear-gradient(#F974AE, #FAE4ED);
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.img-tentang {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.subjudul {
+    color: #F974AE;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.judul-tentang {
+    font-size: 52px;
+    font-weight: 700;
+    color: #F974AE;
+}
+
+.isi-tentang {
+    color: #F974AE;
+    max-width: 500px;
+    font-size: 16px;
+}
+
+/* Katalog Makeup */
+.layanan {
+    background: #FAE4ED;
+    padding-bottom: 60px;
+}
+
+.judul {
+    text-align: center;
+    padding-top: 35px
+}
+
+.layanan-card img {
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #F974AE;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card-text {
+    color: #F974AE;
+    font-size: 15px;
+}
+
+.card-pay {
+    color: #F974AE;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* Button */
+.lihat-semua {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #F974AE, #AE3168);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.lihat-semua:hover {
+    color: #FFFFFF;
+    opacity: .9;
+}
+
+/* Testimoni */
+.testimoni {
+    background: #FAE4ED;
+    padding-bottom: 60px;
+}
+
+.testimoni-container {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.testimoni-card {
+    background: #FFFFFF;
+    border: 1px solid #F974AE;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+}
+
+.testimoni-user {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.testimoni-user i {
+    font-size: 30px;
+    color: #F974AE;
+}
+
+.testimoni-user span {
+    color: #F974AE;
+    font-size: 14px;
+}
+
+.testimoni-user p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 0px;
+}
+
+.rating {
+    color: #F974AE;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.review {
+    color: #777;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Breadcrumbs */
+.banner {
+    height: 180px;
+    background: #FAE4ED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(#FFFFFF, #FAE4ED);
+    padding-top: 80px;
+}
+
+.footer-logo {
+    color: #AE3168;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.footer-title {
+    color: #F974AE;
+    margin-top: 60px;
+    font-weight: 700;
+}
+
+.footer-text,
+.footer-link {
+    color: #F974AE;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-link:hover {
+    color: #AE3168;
+}
+
+.btn-admin {
+    border: none;
+    background: #FAE4ED;
+    color: #F974AE;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 4px 15px;
+}
+
+.footer-bottom {
+    width: 100%;
+    background: #FAE4ED;
+    text-align: center;
+    padding: 20px 0;
+    color: #F974AE;
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-copy {
+    color: #F974AE;
+    margin: 0;
+}
+
+/* Tampilan Mobile */
+/* ================= MOBILE USER HOME ================= */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .logoo {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .btn-home {
+        position: static !important;
+        margin-top: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .logoo {
+        display: none;
+        flex-direction: column;
+    }
+
+    .logoo.active {
+        display: flex;
+    }
+
+    /* HERO */
+    .hero-img {
+        height: 300px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    /* TENTANG */
+    .tentang-kami {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .img-tentang {
+        height: 220px;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .tentang-kami .col-md-7 {
+        padding: 15px;
+        text-align: left;
+    }
+
+    .isi-tentang {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* KATALOG */
+    .row.justify-content-center.g-4 > div {
+        width: 50%;
+    }
+
+    /* TESTIMONI */
+      .testimoni-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .testimoni-card:last-child:nth-child(odd) {
+        grid-column: 1 / span 2;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    /* FOOTER */
+    .footer .row {
+        text-align: center;
+    }
+}

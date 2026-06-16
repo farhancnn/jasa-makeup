@@ -37,6 +37,6 @@ class PembayaranController extends Controller
             'status'            => 'menunggu'
         ]);
 
-        return redirect()->route('katalog.index')->with('success', 'Pembayaran berhasil dikirim! Silakan tunggu konfirmasi Admin.');
+        return redirect('/katalog')->with('success', 'Pembayaran berhasil dikirim! Silakan tunggu konfirmasi Admin.');
     }
 }

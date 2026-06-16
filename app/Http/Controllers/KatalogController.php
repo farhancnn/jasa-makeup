@@ -88,4 +88,14 @@ class KatalogController extends Controller
 
         return redirect()->back()->with('success', 'Layanan berhasil dihapus!');
     }
+
+    // Menampilkan halaman katalog untuk Customer (Publik)
+    public function katalogUser()
+    {
+        // Mengambil seluruh data katalog dari database (terbaru di atas)
+        $katalogs = KatalogMakeup::orderBy('created_at', 'desc')->get(); 
+        
+        // Mengirim data ke file katalog.blade.php
+        return view('katalog', compact('katalogs'));
+    }
 }

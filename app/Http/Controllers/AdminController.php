@@ -35,11 +35,11 @@ class AdminController extends Controller
     {
         // Mengambil semua data pemesanan beserta relasi customer dan katalognya
         // Diurutkan dari pesanan terbaru
-        $pemesanans = Pemesanan::with(['customer', 'katalogMakeup'])
-                               ->orderBy('created_at', 'desc')
-                               ->get();
-                               
-        return view('admin.booking', compact('pemesanans'));
+        $pemesanans = Pemesanan::with(['customer', 'katalogMakeup', 'pembayaran'])
+                           ->orderBy('created_at', 'desc')
+                           ->get();
+                           
+    return view('admin.booking', compact('pemesanans'));
     }
 
     // Memproses perubahan status dari tombol Update

@@ -46,6 +46,22 @@
         
         /* Alert Success */
         .alert-success { background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+
+        /* Tombol Lihat Bukti */
+        .btn-lihat-bukti { 
+            background-color: #17a2b8; 
+            color: white; 
+            padding: 6px 12px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-size: 12px; 
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-lihat-bukti:hover { 
+            background-color: #117a8b; 
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +111,7 @@
                         <th>Klien</th>
                         <th>Layanan</th>
                         <th>Tanggal</th>
+                        <th>Bukti Transfer</th>
                         <th>Total</th>
                         <th>Status Saat Ini</th>
                         <th>Ubah Status</th>
@@ -107,6 +124,17 @@
                         <td>{{ $pesanan->customer->nama_pelanggan ?? 'Data Terhapus' }}</td>
                         <td>{{ $pesanan->katalogMakeup->nama_katalog ?? 'Katalog Terhapus' }}</td>
                         <td>{{ date('d M Y', strtotime($pesanan->tanggal)) }}</td>
+                        
+                        <td>
+                            @if($pesanan->pembayaran && $pesanan->pembayaran->bukti_bayar)
+                                <a href="{{ asset('storage/bukti_bayar/' . $pesanan->pembayaran->bukti_bayar) }}" target="_blank" class="btn-lihat-bukti">
+                                    <i class="fa-solid fa-image"></i> Lihat Struk
+                                </a>
+                            @else
+                                <span style="color: #E65100; font-size: 12px; font-weight: bold;">Belum Bayar</span>
+                            @endif
+                        </td>
+
                         <td>Rp. {{ number_format($pesanan->katalogMakeup->harga ?? 0, 0, ',', '.') }}</td>
                         <td>
                             @if($pesanan->status_pesanan == 'menunggu konfirmasi')
@@ -129,7 +157,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7" style="text-align: center; padding: 20px;">Belum ada data pesanan.</td>
+                        <td colspan="8" style="text-align: center; padding: 20px;">Belum ada data pesanan.</td>
                     </tr>
                     @endforelse
                 </tbody>

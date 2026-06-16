@@ -1,0 +1,520 @@
+/* Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #FAE4ED;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #AE3168;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #F974AE;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.sidebar-header p {
+    font-size: 12px;
+    color: #F974AE;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 10px;
+    border-bottom: 1px solid #F974AE;
+}
+
+.sidebar-profile i {
+    color: #FAE4ED;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 10px 0;
+    flex-grow: 1;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li.active a {
+    background-color: #962556;
+}
+
+.logout {
+    padding: 15px 20px;
+    border-top: 1px solid #F974AE;
+}
+
+.logout a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 0;
+    overflow-y: auto;
+    background: #FAE4ED;
+}
+
+.page-header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #FFFFFF;
+    padding: 15px 35px;
+    border-bottom: 1px solid #FAE4ED;
+}
+
+.page-header h1 {
+    color: #AE3168;
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.page-header p {
+    color: #F974AE;
+    font-size: 14px;
+}
+
+/* Dashboard Admin */
+.cards-container {
+    padding: 30px 35px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid #AE3168;
+    border-radius: 12px;
+    padding: 25px 20px;
+    width: calc(25% - 15px);
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    font-size: 12px;
+    color: #AE3168;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.card .number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #AE3168;
+    margin-bottom: 15px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.badge-pink {
+    background-color: #FAE4ED;
+    color: #AE3168;
+}
+
+.badge-orange {
+    background-color: #FFE8C5;
+    color: #F28C00;
+}
+
+.badge-green {
+    background-color: #DDF7D7;
+    color: #47B34D;
+}
+
+.badge-yellow {
+    background-color: #FBF5A7;
+    color: #FFD400;
+}
+
+/* Booking Admin */
+.booking-header {
+    padding: 22px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-header h2 {
+    color: #F974AE;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.filter-container {
+    background: #FFFFFF;
+    padding: 15px 35px;
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    border: 1px solid #F974AE;
+    background: #FFFFFF;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #FAE4ED;
+}
+
+.table-wrapper {
+    padding: 20px 35px;
+}
+
+table {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #F974AE;
+    border-radius: 12px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+thead {
+    background: #FFFFFF;
+}
+
+th {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.status {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.waiting {
+    background: #FFE8C5;
+    color: #F28C00;
+}
+
+.success {
+    background: #DDF7D7;
+    color: #47B34D;
+}
+
+/* Katalog Admin */
+.btn-add {
+    background: #FFFFFF;
+    color: #777;
+    border: 1px solid #FAE4ED;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.catalog-container {
+    padding: 0 35px 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.catalog-card {
+    background: #FFFFFF;
+    border: 1px solid #F974AE;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.catalog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.catalog-body {
+    padding: 15px;
+}
+
+.catalog-body h3 {
+    color: #AE3168;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.catalog-body p {
+    color: #F974AE;
+    font-size: 14px;
+}
+
+.catalog-body h4 {
+    margin: 15px 0;
+    color: #AE3168;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.catalog-action {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: #AE3168;
+}
+
+.btn-delete {
+    color: #AE3168;
+}
+
+/* Tambah Layanan */
+.layanan-modal{
+    border-radius: 20px;
+    border: none;
+}
+
+.modal-header{
+    border-bottom: 1px solid #FAE4ED;
+}
+
+.modal-title{
+    color: #AE3168;
+    font-weight: 700;
+}
+
+.form-label{
+    color: #AE3168;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.modal .form-control{
+    border: 1px solid #F974AE;
+    border-radius: 10px;
+}
+
+.modal .form-control:focus{
+    border-color: #AE3168;
+    box-shadow: 0 0 0 .2rem #F974AE;
+}
+
+.btn-save{
+    width: 100%;
+    border: none;
+    background: #AE3168;
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.btn-save:hover{
+    background: #AE3168;
+}
+
+/* Testimoni Admin */
+.testimoni-container {
+    padding: 30px 45px;
+    display: grid;
+    grid-template-columns: repeat(2, 450px);
+    gap: 40px;
+}
+
+.testimoni-card {
+    background: #FFFFFF;
+    border: 1px solid #F974AE;
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.testimoni-user {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.testimoni-user i {
+    font-size: 30px;
+    color: #F974AE;
+}
+
+.testimoni-user span {
+    color: #F974AE;
+    font-size: 14px;
+}
+
+.testimoni-user p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 0px;
+}
+
+.rating {
+    color: #F974AE;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.review {
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.btn-delete-testimoni {
+    float: right;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    padding: 8px 25px;
+    border-radius: 20px;
+    color: #AE3168;
+    cursor: pointer;
+}
+
+.testimoni-footer {
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Tampilan Mobile */
+@media (max-width: 768px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .sidebar-header,
+    .sidebar-profile,
+    .logout {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 10px;
+    }
+
+    .nav-menu li a {
+        font-size: 12px;
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .cards-container {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .catalog-container {
+        grid-template-columns: 1fr;
+    }
+
+    .testimoni-container {
+        grid-template-columns: 1fr;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+    }
+}

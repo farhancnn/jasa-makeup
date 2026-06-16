@@ -1,89 +1,132 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
-    <title>Elora Beauty</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- Reset & Base --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #FFF5F8; /* Warna background pink sangat pudar seperti di gambar */ color: #333; overflow-x: hidden; }
-        
-        /* --- Navbar --- */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: transparent; }
-        .logo { font-size: 24px; font-weight: 700; color: #A9265B; text-decoration: none; letter-spacing: 0.5px; }
-        
-        .nav-links { display: flex; gap: 40px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #555; font-weight: 500; font-size: 15px; transition: 0.3s; }
-        .nav-links a.active { color: #A9265B; font-weight: 600; }
-        .nav-links a:hover { color: #A9265B; }
-        
-        /* Tombol Login (Outline) */
-        .btn-login { border: 1.5px solid #A9265B; color: #A9265B; padding: 10px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; font-size: 15px; transition: 0.3s; }
-        .btn-login:hover { background-color: #A9265B; color: white; }
+@extends('layouts.guest')
 
-        /* --- Hero Section --- */
-        .hero { display: flex; align-items: center; justify-content: space-between; padding: 20px 8% 50px 8%; min-height: calc(100vh - 90px); gap: 40px; }
-        
-        /* Bagian Teks (Kiri) */
-        .hero-text { flex: 1; max-width: 50%; }
-        .hero-text h1 { font-size: 3.5rem; color: #222; line-height: 1.15; margin-bottom: 20px; font-weight: 700; }
-        .hero-text h1 span { color: #A9265B; } /* Untuk highlight warna pink pada teks */
-        .hero-text p { font-size: 1rem; color: #666; margin-bottom: 40px; line-height: 1.7; max-width: 90%; }
-        
-        /* Tombol Booking (Solid) */
-        .btn-book { background-color: #A9265B; color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 16px; font-weight: 600; display: inline-block; box-shadow: 0 8px 15px rgba(169, 38, 91, 0.25); transition: 0.3s; }
-        .btn-book:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(169, 38, 91, 0.35); }
+@section('title', 'User | Beranda')
 
-        /* --- Bagian Gambar Kolase (Kanan) --- */
-        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
-        .collage { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; width: 100%; max-width: 500px; height: 500px; }
-        
-        .collage img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        
-        /* Gambar Kiri Besar */
-        .img-large { grid-column: 1; grid-row: 1 / 3; border-radius: 120px 20px 20px 20px; /* Melengkung di kiri atas */ }
-        
-        /* Gambar Kanan Atas */
-        .img-small-top { grid-column: 2; grid-row: 1; border-radius: 20px 120px 20px 20px; /* Melengkung di kanan atas */ }
-        
-        /* Gambar Kanan Bawah */
-        .img-small-bottom { grid-column: 2; grid-row: 2; border-radius: 20px 20px 120px 20px; /* Melengkung di kanan bawah */ }
-    </style>
-</head>
-<body>
+@section('content')
 
-    <header>
-        <a href="/" class="logo">elora beauty.</a>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Beranda</a></li>
-            <li><a href="#">Katalog Layanan</a></li>
-            <li><a href="#">Tentang Kami</a></li>
-            <li><a href="#">Testimoni</a></li>
-        </ul>
-        <a href="/login" class="btn-login">Login</a>
-    </header>
+{{-- 1 --}}
+<section id="beranda" class="mt-3 position-relative">
+    <img src="{{ asset('assets/img/user.png') }}" class="hero-img" alt="user">
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Jasa Makeup Panggilan Terpercaya di <span>Kota Anda</span></h1>
-            <p>Tampil memukau di setiap momen spesialmu. Kami menyediakan layanan makeup profesional untuk wisuda, pernikahan, pesta, dan acara lainnya dengan hasil natural dan tahan lama.</p>
-            
-            <a href="#" class="btn-book">Booking Sekarang</a>
+    <div class="position-absolute top-50 start-50 translate-middle text-center">
+        <h1 class="hero-title">
+            Tampil Sempurna<br>di Hari Spesial
+        </h1>
+        <a href="/katalog" class="btn-home">
+            Booking Sekarang
+        </a>
+    </div>
+</section>
+
+{{-- 2 --}}
+<section id="tentang" class="container mt-4">
+    <div class="row tentang-kami">
+        <div class="col-md-5 p-0">
+            <img src="{{ asset('assets/img/tentang.png') }}" class="img-tentang" alt="tentang">
+        </div>
+        <div class="col-md-7 d-flex flex-column justify-content-center align-items-center text-center">
+            <small class="subjudul">ELORA BEAUTY</small>
+
+            <h2 class="judul-tentang">
+                Tentang Kami
+            </h2>
+
+            <p class="isi-tentang mt-3">
+                Elora Beauty Studio adalah penyedia jasa make up profesional yang berpengalaman dalam menangani berbagai
+                kebutuhan kecantikan. Kami berkomitmen untuk memberikan hasil make up yang sesuai dengan karakter dan
+                keinginan setiap pelanggan.  Dengan menggunakan produk berkualitas dan teknik terkini, kami siap
+                membantu Anda tampil percaya diri di setiap momen spesial.
+            </p>
+        </div>
+    </div>
+</section>
+
+{{-- 3 --}}
+<section id="katalog" class="mt-4">
+    <div class="layanan mt-3">
+        <div class="judul">
+            <small class="subjudul">MAKEUP</small>
+            <h2 class="judul-tentang">Katalog</h2>
         </div>
 
-        <div class="hero-image">
-            <div class="collage">
-                <img src="https://images.unsplash.com/photo-1516975080661-46bfa20281ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Makeup Artist" class="img-large">
+       {{-- Pastikan ini berada di dalam <div class="container"> --}}
+<div class="row g-4 justify-content-center">
+    @forelse($katalogs as $katalog)
+    {{-- Ubah pembagian kolom dan pusatkan isi kolomnya --}}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+        
+        {{-- KUNCI UTAMA: Tambahkan max-width: 280px agar card tidak pernah melebar dari batas ini --}}
+        <div class="card h-100 border-0 shadow-sm" style="width: 100%; max-width: 280px; border-radius: 15px; overflow: hidden;">
+            
+            <img src="{{ asset('storage/katalog/' . $katalog->gambar) }}" 
+                 class="card-img-top" 
+                 alt="{{ $katalog->nama_katalog }}" 
+                 style="height: 350px; width: 100%; object-fit: cover; object-position: center top;">
+            
+            <div class="card-body p-4 text-center">
+                <h5 class="fw-bold mb-3" style="color: #AE3168; font-size: 1.1rem;">{{ $katalog->nama_katalog }}</h5>
+                <h6 class="fw-bold mb-4" style="color: #333;">Rp {{ number_format($katalog->harga ?? 0, 0, ',', '.') }}</h6>
                 
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Eye Makeup" class="img-small-top">
-                
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13fee7c9af?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lipstick" class="img-small-bottom">
+                <a href="{{ route('pemesanan.create', $katalog->id_katalog) }}" class="btn w-100 text-white rounded-pill fw-medium" style="background-color: #AE3168; padding: 10px 0;">
+                    Booking Sekarang
+                </a>
             </div>
         </div>
-    </section>
+        
+    </div>
+    @empty
+    <div class="col-12 text-center text-muted">
+        <p>Belum ada katalog layanan yang tersedia.</p>
+    </div>
+    @endforelse
+     <div class="text-center mt-4">
+            <a href="/katalog" class="lihat-semua">
+                Lihat Semua Katalog →
+            </a>
+        </div>
+</div>
 
-</body>
-</html>
+    </div>
+</section>
+
+{{-- 4 --}}
+<section id="testimoni" class="container py-5 mt-5">
+    <h2 class="text-center mb-5 fw-bold" style="color: #AE3168;">Apa Kata Klien Kami?</h2>
+    
+    <div class="row g-4">
+        {{-- Looping data ulasan --}}
+        @forelse($ulasans as $ulasan)
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4" style="border-radius: 15px;">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-person-circle fs-1 text-secondary me-3"></i>
+                    <div>
+                        <h6 class="mb-0 fw-bold">{{ $ulasan->customer->nama_pelanggan ?? 'Anonim' }}</h6>
+                        <small class="text-muted">{{ date('d M Y', strtotime($ulasan->created_at)) }}</small>
+                    </div>
+                </div>
+                
+                <div class="text-warning mb-2" style="font-size: 14px;">
+                   
+                </div>
+
+                <p class="text-muted fst-italic">"{{ $ulasan->deskripsi }}"</p>
+            </div>
+        </div>
+        @empty
+        <div class="col-12 text-center text-muted">
+            <p>Belum ada ulasan saat ini. Jadilah yang pertama memberikan ulasan!</p>
+        </div>
+        @endforelse
+    </div>
+
+        <div class="text-center mt-4">
+            <a href="/testimoni" class="lihat-semua">
+                Lihat Semua Ulasan →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+@endsection
